@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\AnswerRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -28,6 +30,14 @@ class Answer
 
     #[ORM\Column(length: 255)]
     private ?string $link = null;
+
+    #[ORM\OneToMany(targetEntity: Comment::class, mappedBy: 'answer')]
+    private Collection $answerId;
+
+    public function __construct()
+    {
+        $this->answerId = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -90,6 +100,36 @@ class Answer
     public function setLink(string $link): static
     {
         $this->link = $link;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Comment>
+     */
+    public function getAnswerId(): Collection
+    {
+        return $this->answerId;
+    }
+
+    public function addAnswerId(Comment $answerId): static
+    {
+        if (!$this->answerId->contains($answerId)) {
+            $this->answerId->add($answerId);
+            $answerId->setAnswer($this);
+        }
+
+        return $this;
+    }
+
+    public function removeAnswerId(Comment $answerId): static
+    {
+        if ($this->answerId->removeElement($answerId)) {
+            // set the owning side to null (unless already changed)
+            if ($answerId->getAnswer() === $this) {
+                $answerId->setAnswer(null);
+            }
+        }
 
         return $this;
     }

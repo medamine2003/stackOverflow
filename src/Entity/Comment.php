@@ -24,6 +24,14 @@ class Comment
     #[ORM\JoinColumn(nullable: false)]
     private ?Member $member = null;
 
+    #[ORM\ManyToOne(inversedBy: 'questionId')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Question $question = null;
+
+    #[ORM\ManyToOne(inversedBy: 'answerId')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Answer $answer = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -61,6 +69,30 @@ class Comment
     public function setMember(?Member $member): static
     {
         $this->member = $member;
+
+        return $this;
+    }
+
+    public function getQuestion(): ?Question
+    {
+        return $this->question;
+    }
+
+    public function setQuestion(?Question $question): static
+    {
+        $this->question = $question;
+
+        return $this;
+    }
+
+    public function getAnswer(): ?Answer
+    {
+        return $this->answer;
+    }
+
+    public function setAnswer(?Answer $answer): static
+    {
+        $this->answer = $answer;
 
         return $this;
     }

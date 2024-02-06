@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\QuestionRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -31,6 +33,14 @@ class Question
 
     #[ORM\Column]
     private ?int $view = null;
+
+    #[ORM\OneToMany(targetEntity: Comment::class, mappedBy: 'question')]
+    private Collection $questionId;
+
+    public function __construct()
+    {
+        $this->questionId = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -105,6 +115,36 @@ class Question
     public function setView(int $view): static
     {
         $this->view = $view;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Comment>
+     */
+    public function getQuestionId(): Collection
+    {
+        return $this->questionId;
+    }
+
+    public function addQuestionId(Comment $questionId): static
+    {
+        if (!$this->questionId->contains($questionId)) {
+            $this->questionId->add($questionId);
+            $questionId->setQuestion($this);
+        }
+
+        return $this;
+    }
+
+    public function removeQuestionId(Comment $questionId): static
+    {
+        if ($this->questionId->removeElement($questionId)) {
+            // set the owning side to null (unless already changed)
+            if ($questionId->getQuestion() === $this) {
+                $questionId->setQuestion(null);
+            }
+        }
 
         return $this;
     }
