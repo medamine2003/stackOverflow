@@ -14,9 +14,6 @@ class Comment
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(length: 255)]
-    private ?string $comment = null;
-
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]
     private ?\DateTimeInterface $date = null;
 
@@ -32,22 +29,15 @@ class Comment
     #[ORM\JoinColumn(nullable: false)]
     private ?Answer $answer = null;
 
+    #[ORM\Column(type: Types::TEXT)]
+    private ?string $comment = null;
+
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getComment(): ?string
-    {
-        return $this->comment;
-    }
-
-    public function setComment(string $comment): static
-    {
-        $this->comment = $comment;
-
-        return $this;
-    }
+   
 
     public function getDate(): ?\DateTimeInterface
     {
@@ -93,6 +83,18 @@ class Comment
     public function setAnswer(?Answer $answer): static
     {
         $this->answer = $answer;
+
+        return $this;
+    }
+
+    public function getComment(): ?string
+    {
+        return $this->comment;
+    }
+
+    public function setComment(string $comment): static
+    {
+        $this->comment = $comment;
 
         return $this;
     }

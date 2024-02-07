@@ -16,8 +16,7 @@ class Answer
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(length: 255)]
-    private ?string $reponse = null;
+ 
 
     #[ORM\Column]
     private ?int $score = null;
@@ -34,9 +33,20 @@ class Answer
     #[ORM\OneToMany(targetEntity: Comment::class, mappedBy: 'answer')]
     private Collection $answerId;
 
+    #[ORM\ManyToMany(targetEntity: Tag::class, mappedBy: 'answer')]
+    private Collection $tags;
+
+    #[ORM\ManyToOne(inversedBy: 'answers')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Member $member = null;
+
+    #[ORM\Column(type: Types::TEXT)]
+    private ?string $reponse = null;
+
     public function __construct()
     {
         $this->answerId = new ArrayCollection();
+        $this->tags = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -44,18 +54,8 @@ class Answer
         return $this->id;
     }
 
-    public function getReponse(): ?string
-    {
-        return $this->reponse;
-    }
-
-    public function setReponse(string $reponse): static
-    {
-        $this->reponse = $reponse;
-
-        return $this;
-    }
-
+   
+   
     public function getScore(): ?int
     {
         return $this->score;
@@ -130,6 +130,57 @@ class Answer
                 $answerId->setAnswer(null);
             }
         }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Tag>
+     */
+    public function getTags(): Collection
+    {
+        return $this->tags;
+    }
+
+    public function addTag(Tag $tag): static
+    {
+        if (!$this->tags->contains($tag)) {
+            $this->tags->add($tag);
+            $tag->addAnswer($this);
+        }
+
+        return $this;
+    }
+
+    public function removeTag(Tag $tag): static
+    {
+        if ($this->tags->removeElement($tag)) {
+            $tag->removeAnswer($this);
+        }
+
+        return $this;
+    }
+
+    public function getMember(): ?Member
+    {
+        return $this->member;
+    }
+
+    public function setMember(?Member $member): static
+    {
+        $this->member = $member;
+
+        return $this;
+    }
+
+    public function getReponse(): ?string
+    {
+        return $this->reponse;
+    }
+
+    public function setReponse(string $reponse): static
+    {
+        $this->reponse = $reponse;
 
         return $this;
     }

@@ -19,9 +19,7 @@ class Question
     #[ORM\Column(length: 255)]
     private ?string $title = null;
 
-    #[ORM\Column(length: 255)]
-    private ?string $question = null;
-
+  
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]
     private ?\DateTimeInterface $publication_date = null;
 
@@ -37,9 +35,23 @@ class Question
     #[ORM\OneToMany(targetEntity: Comment::class, mappedBy: 'question')]
     private Collection $questionId;
 
+    #[ORM\ManyToMany(targetEntity: Tag::class, mappedBy: 'question')]
+    private Collection $tags;
+
+    #[ORM\ManyToOne(inversedBy: 'questions')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Member $member = null;
+
+    #[ORM\Column(type: Types::TEXT)]
+    private ?string $question = null;
+
+    #[ORM\Column]
+    private ?int $likes = null;
+
     public function __construct()
     {
         $this->questionId = new ArrayCollection();
+        $this->tags = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -59,18 +71,7 @@ class Question
         return $this;
     }
 
-    public function getQuestion(): ?string
-    {
-        return $this->question;
-    }
-
-    public function setQuestion(string $question): static
-    {
-        $this->question = $question;
-
-        return $this;
-    }
-
+    
     public function getPublicationDate(): ?\DateTimeInterface
     {
         return $this->publication_date;
@@ -145,6 +146,69 @@ class Question
                 $questionId->setQuestion(null);
             }
         }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Tag>
+     */
+    public function getTags(): Collection
+    {
+        return $this->tags;
+    }
+
+    public function addTag(Tag $tag): static
+    {
+        if (!$this->tags->contains($tag)) {
+            $this->tags->add($tag);
+            $tag->addQuestion($this);
+        }
+
+        return $this;
+    }
+
+    public function removeTag(Tag $tag): static
+    {
+        if ($this->tags->removeElement($tag)) {
+            $tag->removeQuestion($this);
+        }
+
+        return $this;
+    }
+
+    public function getMember(): ?Member
+    {
+        return $this->member;
+    }
+
+    public function setMember(?Member $member): static
+    {
+        $this->member = $member;
+
+        return $this;
+    }
+
+    public function getQuestion(): ?string
+    {
+        return $this->question;
+    }
+
+    public function setQuestion(string $question): static
+    {
+        $this->question = $question;
+
+        return $this;
+    }
+
+    public function getLikes(): ?int
+    {
+        return $this->likes;
+    }
+
+    public function setLikes(int $likes): static
+    {
+        $this->likes = $likes;
 
         return $this;
     }
