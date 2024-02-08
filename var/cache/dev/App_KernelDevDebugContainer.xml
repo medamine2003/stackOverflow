@@ -221,6 +221,62 @@
         <argument type="service" id=".service_locator.jUv.zyj.App\Controller\AnswerController"/>
       </call>
     </service>
+    <service id="App\Controller\Api\AnswerController" class="App\Controller\Api\AnswerController" public="true" autowire="true" autoconfigure="true">
+      <tag name="controller.service_arguments"/>
+      <tag name="container.service_subscriber"/>
+      <call method="setContainer">
+        <argument type="service" id=".service_locator.jUv.zyj.App\Controller\Api\AnswerController"/>
+      </call>
+    </service>
+    <service id="App\Controller\Api\AuthController" class="App\Controller\Api\AuthController" public="true" autowire="true" autoconfigure="true">
+      <tag name="controller.service_arguments"/>
+      <tag name="container.service_subscriber"/>
+      <call method="setContainer">
+        <argument type="service" id=".service_locator.jUv.zyj.App\Controller\Api\AuthController"/>
+      </call>
+    </service>
+    <service id="App\Controller\Api\CommentController" class="App\Controller\Api\CommentController" public="true" autowire="true" autoconfigure="true">
+      <tag name="controller.service_arguments"/>
+      <tag name="container.service_subscriber"/>
+      <call method="setContainer">
+        <argument type="service" id=".service_locator.jUv.zyj.App\Controller\Api\CommentController"/>
+      </call>
+    </service>
+    <service id="App\Controller\Api\HomeController" class="App\Controller\Api\HomeController" public="true" autowire="true" autoconfigure="true">
+      <tag name="controller.service_arguments"/>
+      <tag name="container.service_subscriber"/>
+      <call method="setContainer">
+        <argument type="service" id=".service_locator.jUv.zyj.App\Controller\Api\HomeController"/>
+      </call>
+    </service>
+    <service id="App\Controller\Api\MemberController" class="App\Controller\Api\MemberController" public="true" autowire="true" autoconfigure="true">
+      <tag name="controller.service_arguments"/>
+      <tag name="container.service_subscriber"/>
+      <call method="setContainer">
+        <argument type="service" id=".service_locator.jUv.zyj.App\Controller\Api\MemberController"/>
+      </call>
+    </service>
+    <service id="App\Controller\Api\QuestionController" class="App\Controller\Api\QuestionController" public="true" autowire="true" autoconfigure="true">
+      <tag name="controller.service_arguments"/>
+      <tag name="container.service_subscriber"/>
+      <call method="setContainer">
+        <argument type="service" id=".service_locator.jUv.zyj.App\Controller\Api\QuestionController"/>
+      </call>
+    </service>
+    <service id="App\Controller\Api\UserController" class="App\Controller\Api\UserController" public="true" autowire="true" autoconfigure="true">
+      <tag name="controller.service_arguments"/>
+      <tag name="container.service_subscriber"/>
+      <call method="setContainer">
+        <argument type="service" id=".service_locator.jUv.zyj.App\Controller\Api\UserController"/>
+      </call>
+    </service>
+    <service id="App\Controller\AuthController" class="App\Controller\AuthController" public="true" autowire="true" autoconfigure="true">
+      <tag name="controller.service_arguments"/>
+      <tag name="container.service_subscriber"/>
+      <call method="setContainer">
+        <argument type="service" id=".service_locator.jUv.zyj.App\Controller\AuthController"/>
+      </call>
+    </service>
     <service id="App\Controller\CommentController" class="App\Controller\CommentController" public="true" autowire="true" autoconfigure="true">
       <tag name="controller.service_arguments"/>
       <tag name="container.service_subscriber"/>
@@ -322,7 +378,7 @@
     </service>
     <service id="argument_resolver.service" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver">
       <tag priority="-50" name="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver">controller.argument_value_resolver</tag>
-      <argument type="service" id=".service_locator.W5VGHA0"/>
+      <argument type="service" id=".service_locator.PlEco03"/>
     </service>
     <service id="argument_resolver.default" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver">
       <tag priority="-100" name="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver">controller.argument_value_resolver</tag>
@@ -1846,7 +1902,7 @@
     </service>
     <service id="argument_resolver.not_tagged_controller" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\NotTaggedControllerValueResolver">
       <tag name="controller.argument_value_resolver" priority="-200"/>
-      <argument type="service" id=".service_locator.W5VGHA0"/>
+      <argument type="service" id=".service_locator.PlEco03"/>
     </service>
     <service id="routing.resolver" class="Symfony\Component\Config\Loader\LoaderResolver">
       <call method="addLoader">
@@ -4719,6 +4775,30 @@
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\AnswerController" class="App\Controller\AnswerController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\AnswerController" class="App\Controller\AnswerController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\AnswerController" class="App\Controller\AnswerController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\Api\AnswerController" class="App\Controller\Api\AnswerController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\Api\AnswerController" class="App\Controller\Api\AnswerController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\Api\AnswerController" class="App\Controller\Api\AnswerController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\Api\AuthController" class="App\Controller\Api\AuthController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\Api\AuthController" class="App\Controller\Api\AuthController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\Api\AuthController" class="App\Controller\Api\AuthController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\Api\CommentController" class="App\Controller\Api\CommentController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\Api\CommentController" class="App\Controller\Api\CommentController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\Api\CommentController" class="App\Controller\Api\CommentController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\Api\HomeController" class="App\Controller\Api\HomeController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\Api\HomeController" class="App\Controller\Api\HomeController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\Api\HomeController" class="App\Controller\Api\HomeController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\Api\MemberController" class="App\Controller\Api\MemberController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\Api\MemberController" class="App\Controller\Api\MemberController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\Api\MemberController" class="App\Controller\Api\MemberController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\Api\QuestionController" class="App\Controller\Api\QuestionController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\Api\QuestionController" class="App\Controller\Api\QuestionController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\Api\QuestionController" class="App\Controller\Api\QuestionController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\Api\UserController" class="App\Controller\Api\UserController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\Api\UserController" class="App\Controller\Api\UserController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\Api\UserController" class="App\Controller\Api\UserController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\AuthController" class="App\Controller\AuthController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\AuthController" class="App\Controller\AuthController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\AuthController" class="App\Controller\AuthController" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\CommentController" class="App\Controller\CommentController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\CommentController" class="App\Controller\CommentController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\CommentController" class="App\Controller\CommentController" autowire="true" autoconfigure="true" abstract="true"/>
@@ -5164,6 +5244,12 @@
         <argument key="entityManager" type="service_closure" id="doctrine.orm.default_entity_manager"/>
       </argument>
     </service>
+    <service id=".service_locator.NygMs_p" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="JWTManager" type="service_closure" id="lexik_jwt_authentication.jwt_manager"/>
+      </argument>
+    </service>
     <service id=".service_locator.C15PbZX" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
@@ -5246,7 +5332,7 @@
         <argument key="user" type="service_closure" id=".errored..service_locator.R0Sb2kd.App\Entity\User"/>
       </argument>
     </service>
-    <service id=".service_locator.W5VGHA0" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.PlEco03" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Controller\AnswerController::delete" type="service_closure" id=".service_locator.BIqP7KS"/>
@@ -5254,6 +5340,33 @@
         <argument key="App\Controller\AnswerController::index" type="service_closure" id=".service_locator.M.z3REX"/>
         <argument key="App\Controller\AnswerController::new" type="service_closure" id=".service_locator.CsMkqUa"/>
         <argument key="App\Controller\AnswerController::show" type="service_closure" id=".service_locator.Lg.0V_S"/>
+        <argument key="App\Controller\Api\AnswerController::delete" type="service_closure" id=".service_locator.BIqP7KS"/>
+        <argument key="App\Controller\Api\AnswerController::edit" type="service_closure" id=".service_locator.BIqP7KS"/>
+        <argument key="App\Controller\Api\AnswerController::index" type="service_closure" id=".service_locator.M.z3REX"/>
+        <argument key="App\Controller\Api\AnswerController::new" type="service_closure" id=".service_locator.CsMkqUa"/>
+        <argument key="App\Controller\Api\AnswerController::show" type="service_closure" id=".service_locator.Lg.0V_S"/>
+        <argument key="App\Controller\Api\AuthController::login" type="service_closure" id=".service_locator.NygMs_p"/>
+        <argument key="App\Controller\Api\CommentController::delete" type="service_closure" id=".service_locator.sE8VhYE"/>
+        <argument key="App\Controller\Api\CommentController::edit" type="service_closure" id=".service_locator.sE8VhYE"/>
+        <argument key="App\Controller\Api\CommentController::index" type="service_closure" id=".service_locator.C15PbZX"/>
+        <argument key="App\Controller\Api\CommentController::new" type="service_closure" id=".service_locator.CsMkqUa"/>
+        <argument key="App\Controller\Api\CommentController::show" type="service_closure" id=".service_locator.hAGYStx"/>
+        <argument key="App\Controller\Api\MemberController::delete" type="service_closure" id=".service_locator.RIjwOGn"/>
+        <argument key="App\Controller\Api\MemberController::edit" type="service_closure" id=".service_locator.RIjwOGn"/>
+        <argument key="App\Controller\Api\MemberController::index" type="service_closure" id=".service_locator.0luPVJ5"/>
+        <argument key="App\Controller\Api\MemberController::new" type="service_closure" id=".service_locator.CsMkqUa"/>
+        <argument key="App\Controller\Api\MemberController::show" type="service_closure" id=".service_locator.h16QFoQ"/>
+        <argument key="App\Controller\Api\QuestionController::delete" type="service_closure" id=".service_locator.KPV0MsR"/>
+        <argument key="App\Controller\Api\QuestionController::edit" type="service_closure" id=".service_locator.KPV0MsR"/>
+        <argument key="App\Controller\Api\QuestionController::index" type="service_closure" id=".service_locator.vYWALu7"/>
+        <argument key="App\Controller\Api\QuestionController::new" type="service_closure" id=".service_locator.CsMkqUa"/>
+        <argument key="App\Controller\Api\QuestionController::show" type="service_closure" id=".service_locator.4xIyKvd"/>
+        <argument key="App\Controller\Api\QuestionController::showTitle" type="service_closure" id=".service_locator.LPDnECl"/>
+        <argument key="App\Controller\Api\UserController::delete" type="service_closure" id=".service_locator.R0Sb2kd"/>
+        <argument key="App\Controller\Api\UserController::edit" type="service_closure" id=".service_locator.R0Sb2kd"/>
+        <argument key="App\Controller\Api\UserController::index" type="service_closure" id=".service_locator.kPUOGb8"/>
+        <argument key="App\Controller\Api\UserController::new" type="service_closure" id=".service_locator.CsMkqUa"/>
+        <argument key="App\Controller\Api\UserController::show" type="service_closure" id=".service_locator.Hz5btge"/>
         <argument key="App\Controller\CommentController::delete" type="service_closure" id=".service_locator.sE8VhYE"/>
         <argument key="App\Controller\CommentController::edit" type="service_closure" id=".service_locator.sE8VhYE"/>
         <argument key="App\Controller\CommentController::index" type="service_closure" id=".service_locator.C15PbZX"/>
@@ -5284,6 +5397,33 @@
         <argument key="App\Controller\AnswerController:index" type="service_closure" id=".service_locator.M.z3REX"/>
         <argument key="App\Controller\AnswerController:new" type="service_closure" id=".service_locator.CsMkqUa"/>
         <argument key="App\Controller\AnswerController:show" type="service_closure" id=".service_locator.Lg.0V_S"/>
+        <argument key="App\Controller\Api\AnswerController:delete" type="service_closure" id=".service_locator.BIqP7KS"/>
+        <argument key="App\Controller\Api\AnswerController:edit" type="service_closure" id=".service_locator.BIqP7KS"/>
+        <argument key="App\Controller\Api\AnswerController:index" type="service_closure" id=".service_locator.M.z3REX"/>
+        <argument key="App\Controller\Api\AnswerController:new" type="service_closure" id=".service_locator.CsMkqUa"/>
+        <argument key="App\Controller\Api\AnswerController:show" type="service_closure" id=".service_locator.Lg.0V_S"/>
+        <argument key="App\Controller\Api\AuthController:login" type="service_closure" id=".service_locator.NygMs_p"/>
+        <argument key="App\Controller\Api\CommentController:delete" type="service_closure" id=".service_locator.sE8VhYE"/>
+        <argument key="App\Controller\Api\CommentController:edit" type="service_closure" id=".service_locator.sE8VhYE"/>
+        <argument key="App\Controller\Api\CommentController:index" type="service_closure" id=".service_locator.C15PbZX"/>
+        <argument key="App\Controller\Api\CommentController:new" type="service_closure" id=".service_locator.CsMkqUa"/>
+        <argument key="App\Controller\Api\CommentController:show" type="service_closure" id=".service_locator.hAGYStx"/>
+        <argument key="App\Controller\Api\MemberController:delete" type="service_closure" id=".service_locator.RIjwOGn"/>
+        <argument key="App\Controller\Api\MemberController:edit" type="service_closure" id=".service_locator.RIjwOGn"/>
+        <argument key="App\Controller\Api\MemberController:index" type="service_closure" id=".service_locator.0luPVJ5"/>
+        <argument key="App\Controller\Api\MemberController:new" type="service_closure" id=".service_locator.CsMkqUa"/>
+        <argument key="App\Controller\Api\MemberController:show" type="service_closure" id=".service_locator.h16QFoQ"/>
+        <argument key="App\Controller\Api\QuestionController:delete" type="service_closure" id=".service_locator.KPV0MsR"/>
+        <argument key="App\Controller\Api\QuestionController:edit" type="service_closure" id=".service_locator.KPV0MsR"/>
+        <argument key="App\Controller\Api\QuestionController:index" type="service_closure" id=".service_locator.vYWALu7"/>
+        <argument key="App\Controller\Api\QuestionController:new" type="service_closure" id=".service_locator.CsMkqUa"/>
+        <argument key="App\Controller\Api\QuestionController:show" type="service_closure" id=".service_locator.4xIyKvd"/>
+        <argument key="App\Controller\Api\QuestionController:showTitle" type="service_closure" id=".service_locator.LPDnECl"/>
+        <argument key="App\Controller\Api\UserController:delete" type="service_closure" id=".service_locator.R0Sb2kd"/>
+        <argument key="App\Controller\Api\UserController:edit" type="service_closure" id=".service_locator.R0Sb2kd"/>
+        <argument key="App\Controller\Api\UserController:index" type="service_closure" id=".service_locator.kPUOGb8"/>
+        <argument key="App\Controller\Api\UserController:new" type="service_closure" id=".service_locator.CsMkqUa"/>
+        <argument key="App\Controller\Api\UserController:show" type="service_closure" id=".service_locator.Hz5btge"/>
         <argument key="App\Controller\CommentController:delete" type="service_closure" id=".service_locator.sE8VhYE"/>
         <argument key="App\Controller\CommentController:edit" type="service_closure" id=".service_locator.sE8VhYE"/>
         <argument key="App\Controller\CommentController:index" type="service_closure" id=".service_locator.C15PbZX"/>
@@ -5693,6 +5833,54 @@
     <service id=".service_locator.jUv.zyj.App\Controller\AnswerController" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator_context" id="App\Controller\AnswerController"/>
       <argument>App\Controller\AnswerController</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.jUv.zyj" method="withContext"/>
+    </service>
+    <service id=".service_locator.jUv.zyj.App\Controller\Api\AnswerController" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator_context" id="App\Controller\Api\AnswerController"/>
+      <argument>App\Controller\Api\AnswerController</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.jUv.zyj" method="withContext"/>
+    </service>
+    <service id=".service_locator.jUv.zyj.App\Controller\Api\AuthController" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator_context" id="App\Controller\Api\AuthController"/>
+      <argument>App\Controller\Api\AuthController</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.jUv.zyj" method="withContext"/>
+    </service>
+    <service id=".service_locator.jUv.zyj.App\Controller\Api\CommentController" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator_context" id="App\Controller\Api\CommentController"/>
+      <argument>App\Controller\Api\CommentController</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.jUv.zyj" method="withContext"/>
+    </service>
+    <service id=".service_locator.jUv.zyj.App\Controller\Api\HomeController" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator_context" id="App\Controller\Api\HomeController"/>
+      <argument>App\Controller\Api\HomeController</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.jUv.zyj" method="withContext"/>
+    </service>
+    <service id=".service_locator.jUv.zyj.App\Controller\Api\MemberController" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator_context" id="App\Controller\Api\MemberController"/>
+      <argument>App\Controller\Api\MemberController</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.jUv.zyj" method="withContext"/>
+    </service>
+    <service id=".service_locator.jUv.zyj.App\Controller\Api\QuestionController" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator_context" id="App\Controller\Api\QuestionController"/>
+      <argument>App\Controller\Api\QuestionController</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.jUv.zyj" method="withContext"/>
+    </service>
+    <service id=".service_locator.jUv.zyj.App\Controller\Api\UserController" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator_context" id="App\Controller\Api\UserController"/>
+      <argument>App\Controller\Api\UserController</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.jUv.zyj" method="withContext"/>
+    </service>
+    <service id=".service_locator.jUv.zyj.App\Controller\AuthController" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator_context" id="App\Controller\AuthController"/>
+      <argument>App\Controller\AuthController</argument>
       <argument type="service" id="service_container"/>
       <factory service=".service_locator.jUv.zyj" method="withContext"/>
     </service>
@@ -6845,7 +7033,7 @@
     <service id="lexik_jwt_authentication.key_loader" alias="lexik_jwt_authentication.key_loader.raw" public="true"/>
     <service id="container.env_var_processors_locator" alias=".service_locator.bJ.4HC5" public="true"/>
     <service id="twig.loader.filesystem" alias="twig.loader.native_filesystem"/>
-    <service id="argument_resolver.controller_locator" alias=".service_locator.W5VGHA0"/>
+    <service id="argument_resolver.controller_locator" alias=".service_locator.PlEco03"/>
     <service id="doctrine.id_generator_locator" alias=".service_locator.KLVvNIq"/>
     <service id="twig.loader" alias="twig.loader.native_filesystem"/>
     <service id="Psr\Log\LoggerInterface" alias="logger"/>
@@ -6869,6 +7057,7 @@
     <service id=".service_locator.9e2t_lq" alias=".service_locator.CsMkqUa"/>
     <service id=".service_locator.HY8Od6o" alias=".service_locator.Lg.0V_S"/>
     <service id=".service_locator.U.4sNtX" alias=".service_locator.BIqP7KS"/>
+    <service id=".service_locator.ImnDn4v" alias=".service_locator.NygMs_p"/>
     <service id=".service_locator.lboLcqS" alias=".service_locator.C15PbZX"/>
     <service id=".service_locator.jvkdxbJ" alias=".service_locator.hAGYStx"/>
     <service id=".service_locator.kXuNxP5" alias=".service_locator.sE8VhYE"/>
